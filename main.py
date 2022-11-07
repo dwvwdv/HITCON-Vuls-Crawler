@@ -5,6 +5,9 @@ from pynput import keyboard
 import os
 import sys
 
+global page
+page = 1
+
 def regular(text):
     reg = re.compile('title tx-overflow-ellipsis"><a href="(.*?)">(.*?)</a>')
     return re.findall(reg,text)
@@ -22,6 +25,8 @@ def reqeust_Open_Vulnerability(pageNum):
     url = f'https://zeroday.hitcon.org/vulnerability/disclosed/page/{pageNum}'
     scraper = cloudscraper.create_scraper(delay=300, browser={'custom': 'ScraperBot/1.0',})
     response = scraper.get(url)
+    if(response.status_code != 200):
+        print(f"Waring : Status Code-{response.status_code}")
     return response.text
 
 def parseSystemParam(args,responseHtml):
@@ -51,18 +56,42 @@ def writeClear():
     with open(SaveFile,'w',encoding='u8') as f:
         f.write('')
 
-def init():
-    writeClear()
+
+def on_press(key):
+    global page
+    if key == keyboard.Key.page_down:
+        page += 1
+        pageShow()
+    elif key == keyboard.Key.page_up:
+        page -= 1
+        pageShow()
+    elif key == keyboard.KeyCode(char = '/'):
+        page = int(input())
+        pageShow()
+    elif key == keyboard.Key.f1:
+        help()
 
 def on_release(key):
-    page = 1
-    if key == keyboard.Key.down:
-        respText = reqeust_Open_Vulnerability(++page)
+    if(key == keyboard.Key.esc):
+        sys.exit()
+
+def help():
+    print("Key Help:\n | page down:next page | page up : previous page | /:Input index jump to page | F1:help | Esc:exit |")
+
+def init():
+    help()
+    writeClear()
+    pageShow()
+    with keyboard.Listener(on_press=on_press,suppress=False,on_release=on_release) as listener:
+        listener.join()
+    
+def pageShow():
+    print(f"---------------------------- Now Page : {page} -----------------------------")
+    respText = reqeust_Open_Vulnerability(page)
+    vuls = regular(respText)
+    vulsDataShow(vuls)
 
 if __name__ =='__main__':
-    respText = reqeust_Open_Vulnerability(1)
-    parseSystemParam(sys.argv[1:],respText)
-    vuls = regular(respText)
-    
-    vulsDataShow(vuls)
-    writeInVuls(vuls)
+    init()
+
+    # writeInVuls(vuls)
