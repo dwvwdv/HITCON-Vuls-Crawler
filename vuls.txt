@@ -1,0 +1,50 @@
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00722 陽明交通大學任意上傳漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00721 淡江大學無效存取控管
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00571 [Bounty] 台灣電力公司  用電診斷中心 Broken Access Control
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00718 東金電機有限公司SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00717 森手木工Moriii SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00714 某畫廊 反射型XSS
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00712 中華機械xss漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00711 某畫廊 php 程式碼注人
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00710 竹林高級中學後台帳號密碼
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00707 智光商職無效存取控管
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00706 某畫廊 資料庫注入漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00705 嘉義市醫師公會 任意檔案下載漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00703 金門日報全球資訊網 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00699 臺東縣長期照顧管理中心SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00698 高雄市政府社會局志願服務資源中心SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00697 清華大學Git leak
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00850 清華大學特殊選才報名系統資料外洩
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00696 臺中市政府全球資訊網 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00695 臺中市中區區公所 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00694 臺中市政府衛生局 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00693 行政院人事行政總處公務人力發展學院 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00691 臺中市海岸資源漁業發展所 任意讀檔漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00690 立志中學SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00689 某官方網站 資料庫注入漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00688 墨達思MODUS網站 sqli 漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00687 崇高科技股份有限公司 sqli 漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00686 鳳凰顏料 sqli 漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00648 [Bounty] 台灣電力公司 CSRF 重設使用者密碼
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00647 [Bounty] 台灣電力公司 不安全的忘記密碼功能
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00684 甘寶生物科技
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00683 鵲絲旅店 資料庫注入漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00682 優思瑪特科技 任意文件讀取漏洞CVE-2021-43798
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00675 正修科技大學能源管理系統綜合漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00814 雲林科技大學後臺未關閉
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00813 雲林科技大學後台未關閉
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00881 台灣科技大學後台上傳功能未關
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00672 高雄市立高級中學SQL注入
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00671 大專生就業職能平台 UCANstored XSS
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00664 國立聯合大學 EMBA產學合作平台 目錄遍歷與學生教師資料外洩
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00716 SurveyCake Stored XSS 
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00722 陽明交通大學任意上傳漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00721 淡江大學無效存取控管
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00571 [Bounty] 台灣電力公司  用電診斷中心 Broken Access Control
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00718 東金電機有限公司SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00717 森手木工Moriii SQLi漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00714 某畫廊 反射型XSS
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00712 中華機械xss漏洞
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00711 某畫廊 php 程式碼注人
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00710 竹林高級中學後台帳號密碼
+https://zeroday.hitcon.org/vulnerability/ZD-2022-00707 智光商職無效存取控管
