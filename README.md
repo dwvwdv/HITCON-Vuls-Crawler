@@ -12,6 +12,3 @@
 - /:Input index jump to page  
 - F1:help  
 - Esc:exit  
-
-### 已知問題
-/ 跳轉時因線程非阻塞，會監聽到其他按鍵，產生多餘的字，需手動刪除
