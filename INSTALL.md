@@ -9,9 +9,18 @@ cd HITCON-Vuls-Crawler
 ```
 
 ### 2. 安裝依賴
+
+**選項 A：TUI 版本（推薦，無編譯問題）**
 ```bash
 pip install -r requirements.txt
 ```
+
+**選項 B：完整版本（包含傳統 CLI 模式，可能需要編譯工具）**
+```bash
+pip install -r requirements-full.txt
+```
+
+> ⚠️ **遇到編譯錯誤？** 請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
 ### 3. 執行程式
 

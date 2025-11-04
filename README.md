@@ -16,6 +16,7 @@ python tui_app.py
 ```
 
 📖 **詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
+🔧 **遇到問題？請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)**
 
 ## 功能特色
 - 🎨 現代化TUI界面（基於Textual框架）
