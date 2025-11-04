@@ -34,9 +34,6 @@ class HITCONVulsCrawler:
         Args:
             use_demo_data: If True, use demo data instead of fetching from website
         """
-        self.scraper = cloudscraper.create_scraper(
-            browser='chrome'  # Use realistic Chrome browser signature
-        )
         self._cache = {}
         self.use_demo_data = use_demo_data
         self.last_error = None
@@ -70,9 +67,14 @@ class HITCONVulsCrawler:
 
         url = self.BASE_URL.format(page=page_num)
 
-        # Try with proxy first (normal mode)
+        # Create a new scraper for each request (like main.py)
+        # This prevents session reuse issues that cause 403 on subsequent requests
         try:
-            response = self.scraper.get(url, timeout=15)
+            scraper = cloudscraper.create_scraper(
+                delay=300,
+                browser={'custom': 'ScraperBot/1.0'}
+            )
+            response = scraper.get(url, timeout=15)
 
             if response.status_code == 200:
                 html = response.text
@@ -80,44 +82,13 @@ class HITCONVulsCrawler:
                     self._cache[page_num] = html
                 self.last_error = None
                 return html
-            elif response.status_code == 403:
-                # Proxy might be blocking, try without proxy
-                pass
             else:
                 self.last_error = f"HTTP {response.status_code}"
                 return None
 
         except Exception as e:
-            # Network error, try without proxy
-            pass
-
-        # Try without proxy if proxy failed
-        try:
-            # Disable proxy for this request
-            session = self.scraper
-            session.proxies = {
-                'http': None,
-                'https': None,
-            }
-            session.trust_env = False
-
-            response = session.get(url, timeout=15)
-
-            if response.status_code == 200:
-                html = response.text
-                if use_cache:
-                    self._cache[page_num] = html
-                self.last_error = None
-                return html
-            elif response.status_code == 403:
-                self.last_error = "Access Denied (403) - Website blocking requests"
-            else:
-                self.last_error = f"HTTP {response.status_code}"
-
-        except Exception as e:
             self.last_error = f"Network error: {str(e)}"
-
-        return None
+            return None
 
     def parse_vulnerabilities(self, html: str) -> List[Vulnerability]:
         """
@@ -149,21 +120,12 @@ class HITCONVulsCrawler:
         # Try to fetch real data
         html = self.fetch_page(page_num)
 
-        # If fetch failed, automatically switch to demo mode
+        # If fetch failed, return empty list (don't auto-switch to demo mode)
         if html is None:
-            if not self.use_demo_data:
-                # Auto-enable demo mode on first failure
-                self.use_demo_data = True
-            return self._generate_demo_data(page_num)
+            return []
 
-        # Parse real data
+        # Parse and return real data
         vulns = self.parse_vulnerabilities(html)
-
-        # If parsing returned no results, use demo data as fallback
-        if not vulns:
-            self.use_demo_data = True
-            return self._generate_demo_data(page_num)
-
         return vulns
 
     def clear_cache(self) -> None:
