@@ -8,11 +8,12 @@ from textual.widgets import Header, Footer, DataTable, Static, Input
 from textual.containers import Container, Vertical, Horizontal
 from textual.binding import Binding
 from textual.screen import ModalScreen
-from textual import on
+from textual import on, events
 from textual.reactive import reactive
 from rich.text import Text
 import webbrowser
 import platform
+import time
 
 from crawler import HITCONVulsCrawler, Vulnerability
 from config_loader import ConfigLoader
@@ -183,43 +184,21 @@ class HITCONVulsTUI(App):
     current_page = reactive(1)
     loading = reactive(False)
     vim_command_buffer = ""
-    last_key_press = 0
+    last_key_time = 0
+
+    # Static bindings for special keys that work through Textual's binding system
+    BINDINGS = [
+        Binding("escape", "quit_app", "Quit", show=False),
+        Binding("f1", "show_help", "Help", show=False),
+    ]
 
     def __init__(self):
         super().__init__()
         self.config = ConfigLoader()
         self.crawler = HITCONVulsCrawler()
         self.vulnerabilities: List[Vulnerability] = []
-        self._setup_keybindings()
-
-    def _setup_keybindings(self) -> None:
-        """Setup keybindings from config"""
         self.keybindings = self.config.get_keybindings()
-
-        # Create bindings list
-        bindings = []
-
-        # Map actions to methods
-        action_map = {
-            "down": ("move_down", "Move down"),
-            "up": ("move_up", "Move up"),
-            "page_down": ("next_page", "Next page"),
-            "page_up": ("prev_page", "Previous page"),
-            "first_page": ("first_page", "First page"),
-            "last_page": ("last_page", "Last page"),
-            "jump_to_page": ("jump_to_page", "Jump to page"),
-            "refresh": ("refresh_page", "Refresh"),
-            "help": ("show_help", "Help"),
-            "quit": ("quit_app", "Quit"),
-            "open_browser": ("open_browser", "Open in browser"),
-        }
-
-        for action, (method, description) in action_map.items():
-            if action in self.keybindings:
-                for key in self.keybindings[action]:
-                    bindings.append(Binding(key, method, description, show=False))
-
-        self.BINDINGS = bindings
+        self.gg_pressed = False
 
     def compose(self) -> ComposeResult:
         """Compose the application layout"""
@@ -237,6 +216,59 @@ class HITCONVulsTUI(App):
         table.add_columns("ID", "Title", "URL")
         table.focus()
         self.load_page(1)
+
+    def on_key(self, event: events.Key) -> None:
+        """Handle key press events for vim-style navigation"""
+        key = event.key
+
+        # Debug: Show key press in status bar (optional, can be removed)
+        # Uncomment the next line to see which keys are being pressed
+        # self.query_one("#status-bar", Static).update(f"[dim]Key pressed: {key}[/dim]")
+
+        # Handle 'gg' command (go to first page)
+        if key == "g":
+            current_time = time.time()
+            if self.gg_pressed and (current_time - self.last_key_time) < 0.5:
+                # Second 'g' pressed within 0.5 seconds
+                self.action_first_page()
+                self.gg_pressed = False
+                event.prevent_default()
+                return
+            else:
+                # First 'g' pressed
+                self.gg_pressed = True
+                self.last_key_time = current_time
+                event.prevent_default()
+                return
+        else:
+            # Reset gg state if another key is pressed
+            self.gg_pressed = False
+
+        # Map single character keys to actions
+        key_map = {
+            # Navigation within page
+            "j": self.action_move_down,
+            "k": self.action_move_up,
+
+            # Page navigation
+            "h": self.action_prev_page,
+            "l": self.action_next_page,
+
+            # Actions
+            "b": self.action_open_browser,
+            "r": self.action_refresh_page,
+            "q": self.action_quit_app,
+
+            # Special
+            "/": self.action_jump_to_page,
+            "?": self.action_show_help,
+            "G": self.action_last_page,  # Shift+g
+        }
+
+        if key in key_map:
+            key_map[key]()
+            event.prevent_default()
+            event.stop()
 
     def update_status_bar(self) -> None:
         """Update the status bar with current page info"""
