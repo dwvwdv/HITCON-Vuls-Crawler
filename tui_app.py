@@ -277,11 +277,22 @@ class HITCONVulsTUI(App):
             status.update("[bold yellow]Loading...[/bold yellow]")
         else:
             vul_count = len(self.vulnerabilities)
-            status.update(
+            status_text = (
                 f"[bold cyan]Page:[/bold cyan] {self.current_page} | "
-                f"[bold cyan]Vulnerabilities:[/bold cyan] {vul_count} | "
-                f"[dim]Press ? for help[/dim]"
+                f"[bold cyan]Vulnerabilities:[/bold cyan] {vul_count}"
             )
+
+            # Show demo mode indicator
+            if self.crawler.use_demo_data:
+                status_text += " | [bold yellow]演示模式[/bold yellow]"
+
+            # Show last error if any
+            if self.crawler.last_error:
+                status_text += f" | [dim red]{self.crawler.last_error}[/dim red]"
+            else:
+                status_text += " | [dim]Press ? for help[/dim]"
+
+            status.update(status_text)
 
     def load_page(self, page_num: int) -> None:
         """Load vulnerabilities for a specific page"""
