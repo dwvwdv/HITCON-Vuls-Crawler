@@ -1,0 +1,37 @@
+{
+  "keybindings": {
+    "vim_mode": {
+      "down": ["j", "down"],
+      "up": ["k", "up"],
+      "page_down": ["ctrl+f", "pagedown", "d"],
+      "page_up": ["ctrl+b", "pageup", "u"],
+      "first_page": ["g,g"],
+      "last_page": ["G"],
+      "jump_to_page": ["/", "colon"],
+      "refresh": ["r"],
+      "help": ["question", "f1"],
+      "quit": ["q", "escape"]
+    },
+    "classic_mode": {
+      "down": ["down"],
+      "up": ["up"],
+      "page_down": ["pagedown"],
+      "page_up": ["pageup"],
+      "jump_to_page": ["/"],
+      "help": ["f1"],
+      "quit": ["escape"]
+    }
+  },
+  "default_mode": "vim_mode",
+  "theme": {
+    "primary": "cyan",
+    "secondary": "magenta",
+    "accent": "yellow",
+    "border": "blue"
+  },
+  "display": {
+    "items_per_page": 20,
+    "show_page_numbers": true,
+    "show_help_bar": true
+  }
+}

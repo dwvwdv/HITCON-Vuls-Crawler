@@ -1,4 +1,3 @@
 cloudscraper
-re
-os
-sys
+textual>=0.47.0
+pynput

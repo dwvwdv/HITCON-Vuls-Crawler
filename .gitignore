@@ -1,2 +1,24 @@
 vuls.txt
 output.html
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# User configuration
+~/.hitcon-vuls-crawler-config.json
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
