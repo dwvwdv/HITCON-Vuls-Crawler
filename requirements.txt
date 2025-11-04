@@ -1,4 +1,7 @@
-cloudscraper
-re
-os
-sys
+# TUI版本核心依賴（推薦）
+cloudscraper>=1.2.71
+textual>=0.47.0
+
+# 傳統CLI模式依賴（可選）
+# 如果需要使用 main.py，請安裝：pip install pynput
+# 或使用：pip install -r requirements-full.txt
