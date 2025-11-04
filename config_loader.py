@@ -50,14 +50,15 @@ class ConfigLoader:
                 "vim_mode": {
                     "down": ["j", "down"],
                     "up": ["k", "up"],
-                    "page_down": ["ctrl+f", "pagedown", "d"],
-                    "page_up": ["ctrl+b", "pageup", "u"],
+                    "page_down": ["l", "ctrl+f", "pagedown"],
+                    "page_up": ["h", "ctrl+b", "pageup"],
                     "first_page": ["g,g"],
                     "last_page": ["G"],
                     "jump_to_page": ["/", "colon"],
                     "refresh": ["r"],
                     "help": ["question", "f1"],
-                    "quit": ["q", "escape"]
+                    "quit": ["q", "escape"],
+                    "open_browser": ["b", "enter"]
                 }
             },
             "default_mode": "vim_mode",

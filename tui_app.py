@@ -11,6 +11,8 @@ from textual.screen import ModalScreen
 from textual import on
 from textual.reactive import reactive
 from rich.text import Text
+import webbrowser
+import platform
 
 from crawler import HITCONVulsCrawler, Vulnerability
 from config_loader import ConfigLoader
@@ -53,6 +55,7 @@ class HelpScreen(ModalScreen):
             "first_page": "Jump to first page",
             "last_page": "Jump to last page",
             "jump_to_page": "Jump to specific page",
+            "open_browser": "Open in browser",
             "refresh": "Refresh current page",
             "help": "Show this help",
             "quit": "Quit application"
@@ -208,6 +211,7 @@ class HITCONVulsTUI(App):
             "refresh": ("refresh_page", "Refresh"),
             "help": ("show_help", "Help"),
             "quit": ("quit_app", "Quit"),
+            "open_browser": ("open_browser", "Open in browser"),
         }
 
         for action, (method, description) in action_map.items():
@@ -326,12 +330,36 @@ class HITCONVulsTUI(App):
         """Quit the application"""
         self.exit()
 
+    def action_open_browser(self) -> None:
+        """Open the currently selected vulnerability in browser"""
+        table = self.query_one(VulnerabilityTable)
+
+        # Get the cursor position
+        if table.cursor_row is None or table.cursor_row < 0:
+            return
+
+        # Get the row index (0-based)
+        row_idx = table.cursor_row
+
+        # Check if we have a vulnerability at this index
+        if row_idx < len(self.vulnerabilities):
+            vul = self.vulnerabilities[row_idx]
+            try:
+                webbrowser.open(vul.full_url)
+                # Update status bar to show feedback
+                status = self.query_one("#status-bar", Static)
+                status.update(f"[bold green]Opening:[/bold green] {vul.full_url}")
+                # Restore normal status after a moment
+                self.set_timer(2.0, self.update_status_bar)
+            except Exception as e:
+                status = self.query_one("#status-bar", Static)
+                status.update(f"[bold red]Error opening browser:[/bold red] {str(e)}")
+                self.set_timer(3.0, self.update_status_bar)
+
     def on_data_table_row_selected(self, event: DataTable.RowSelected) -> None:
-        """Handle row selection - could open URL in browser"""
-        row_key = event.row_key
-        row_data = event.data_table.get_row(row_key)
-        # In the future, could open the URL in a browser here
-        pass
+        """Handle row selection - open URL in browser on enter"""
+        # When user presses Enter on a row, open it in browser
+        self.action_open_browser()
 
 
 def main():

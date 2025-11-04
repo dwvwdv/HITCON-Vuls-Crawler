@@ -43,10 +43,11 @@ python main.py
 ## 快捷鍵
 
 ### TUI模式（Vim風格）
-- `j` / `↓` : 向下移動
-- `k` / `↑` : 向上移動
-- `d` / `Ctrl+f` / `PageDown` : 下一頁
-- `u` / `Ctrl+b` / `PageUp` : 上一頁
+- `j` / `↓` : 向下移動選項
+- `k` / `↑` : 向上移動選項
+- `h` / `Ctrl+b` / `PageUp` : 上一頁
+- `l` / `Ctrl+f` / `PageDown` : 下一頁
+- `b` / `Enter` : 在瀏覽器中打開選中的漏洞
 - `gg` : 跳轉到第一頁
 - `G` : 跳轉到最後一頁
 - `/` : 跳轉到指定頁面
@@ -71,8 +72,9 @@ python main.py
     "vim_mode": {
       "down": ["j", "down"],
       "up": ["k", "up"],
-      "page_down": ["ctrl+f", "pagedown", "d"],
-      "page_up": ["ctrl+b", "pageup", "u"],
+      "page_down": ["l", "ctrl+f", "pagedown"],
+      "page_up": ["h", "ctrl+b", "pageup"],
+      "open_browser": ["b", "enter"],
       ...
     }
   }
