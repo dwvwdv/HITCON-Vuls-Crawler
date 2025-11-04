@@ -22,7 +22,19 @@ pip install -r requirements-full.txt
 
 > ⚠️ **遇到編譯錯誤？** 請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
-### 3. 執行程式
+### 3. 驗證安裝（可選）
+
+```bash
+# Linux/macOS
+./test_install.sh
+
+# Windows
+test_install.bat
+```
+
+如果所有項目都顯示 ✅，安裝成功！
+
+### 4. 執行程式
 
 #### 選項 A：新版TUI界面（推薦）
 ```bash
