@@ -11,12 +11,16 @@ cd HITCON-Vuls-Crawler
 # 2. 安裝依賴
 pip install -r requirements.txt
 
-# 3. 執行TUI程式
+# 3. 網絡診斷（可選，檢查是否能訪問網站）
+python diagnose_network.py
+
+# 4. 執行TUI程式
 python tui_app.py
 ```
 
 📖 **詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
 🔧 **遇到問題？請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)**
+🌐 **數據為演示模式？請參閱 [ENVIRONMENT_README.md](ENVIRONMENT_README.md)**
 
 ## 功能特色
 - 🎨 現代化TUI界面（基於Textual框架）

@@ -68,27 +68,56 @@ class HITCONVulsCrawler:
         if use_cache and page_num in self._cache:
             return self._cache[page_num]
 
+        url = self.BASE_URL.format(page=page_num)
+
+        # Try with proxy first (normal mode)
         try:
-            url = self.BASE_URL.format(page=page_num)
             response = self.scraper.get(url, timeout=15)
 
-            if response.status_code == 403:
-                self.last_error = "Access Denied (403) - Website may be blocking requests"
-                return None
-            elif response.status_code != 200:
+            if response.status_code == 200:
+                html = response.text
+                if use_cache:
+                    self._cache[page_num] = html
+                self.last_error = None
+                return html
+            elif response.status_code == 403:
+                # Proxy might be blocking, try without proxy
+                pass
+            else:
                 self.last_error = f"HTTP {response.status_code}"
                 return None
 
-            html = response.text
-            if use_cache:
-                self._cache[page_num] = html
+        except Exception as e:
+            # Network error, try without proxy
+            pass
 
-            self.last_error = None
-            return html
+        # Try without proxy if proxy failed
+        try:
+            # Disable proxy for this request
+            session = self.scraper
+            session.proxies = {
+                'http': None,
+                'https': None,
+            }
+            session.trust_env = False
+
+            response = session.get(url, timeout=15)
+
+            if response.status_code == 200:
+                html = response.text
+                if use_cache:
+                    self._cache[page_num] = html
+                self.last_error = None
+                return html
+            elif response.status_code == 403:
+                self.last_error = "Access Denied (403) - Website blocking requests"
+            else:
+                self.last_error = f"HTTP {response.status_code}"
 
         except Exception as e:
-            self.last_error = str(e)
-            return None
+            self.last_error = f"Network error: {str(e)}"
+
+        return None
 
     def parse_vulnerabilities(self, html: str) -> List[Vulnerability]:
         """
