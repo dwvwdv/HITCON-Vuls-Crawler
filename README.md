@@ -1,6 +1,22 @@
 # HITCON-Vuls
 終端下HITCON公開漏洞快速查閱，方便學習各種漏洞與思路
 
+## 快速開始
+
+```bash
+# 1. 克隆專案
+git clone https://github.com/dwvwdv/HITCON-Vuls-Crawler.git
+cd HITCON-Vuls-Crawler
+
+# 2. 安裝依賴
+pip install -r requirements.txt
+
+# 3. 執行TUI程式
+python tui_app.py
+```
+
+📖 **詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
+
 ## 功能特色
 - 🎨 現代化TUI界面（基於Textual框架）
 - ⌨️  Vim風格鍵位支援（完全可自訂）
