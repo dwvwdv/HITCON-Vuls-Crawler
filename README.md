@@ -18,16 +18,16 @@ python diagnose_network.py
 python tui_app.py
 ```
 
-📖 **詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
-🔧 **遇到問題？請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)**
-🌐 **數據為演示模式？請參閱 [ENVIRONMENT_README.md](ENVIRONMENT_README.md)**
+**詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
+**遇到問題？請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)**
+**數據為演示模式？請參閱 [ENVIRONMENT_README.md](ENVIRONMENT_README.md)**
 
 ## 功能特色
-- 🎨 現代化TUI界面（基於Textual框架）
-- ⌨️  Vim風格鍵位支援（完全可自訂）
-- 🚀 頁面快取機制，快速瀏覽
-- 🎯 支援跳轉到指定頁面
-- 🔧 可自訂鍵位綁定和主題
+- 現代化TUI界面（基於Textual框架）
+- Vim風格鍵位支援（完全可自訂）
+- 頁面快取機制，快速瀏覽
+- 支援跳轉到指定頁面
+- 可自訂鍵位綁定和主題
 
 ## 使用方式
 
@@ -86,11 +86,11 @@ pip install -r requirements.txt
 
 ```
 HITCON-Vuls-Crawler/
-├── tui_app.py          # TUI應用程式（新）
-├── crawler.py          # 爬蟲邏輯模組（新）
-├── config_loader.py    # 設定載入器（新）
-├── config.json         # 預設設定檔（新）
-├── main.py             # 傳統CLI應用程式
+├── app.py          # TUI應用程式
+├── crawler.py          # 爬蟲邏輯模組
+├── config_loader.py    # 設定載入器
+├── config.json         # 預設設定檔
+├── main.py             # CLI應用程式
 ├── requirements.txt    # Python依賴
 └── README.md          # 說明文件
 ```  
