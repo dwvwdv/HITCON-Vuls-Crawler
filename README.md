@@ -34,15 +34,11 @@ python tui_app.py
 ### 新版TUI界面（推薦）
 執行TUI應用程式，享受現代化的終端介面：
 ```bash
-python tui_app.py
+python app.py
 ```
 
-### 傳統模式
-執行main.py，搭配Ctrl+點擊快速打開頁面連結：
-```bash
-python main.py
-```
-![image](https://github.com/dwvwdv/github_picture/blob/master/2022-11-07%2016%2014%2004.png)
+![image](https://github.com/dwvwdv/github_picture/blob/master/螢幕擷取畫面%202025-11-05%20200151.png)
+
 
 ## 快捷鍵
 
@@ -58,13 +54,6 @@ python main.py
 - `r` : 重新整理當前頁面
 - `?` / `F1` : 顯示說明
 - `q` / `Esc` : 退出程式
-
-### 傳統模式
-- `Page Down` : 下一頁
-- `Page Up` : 上一頁
-- `/` : 輸入頁碼跳轉
-- `F1` : 說明
-- `Esc` : 退出
 
 ## 自訂鍵位綁定
 
