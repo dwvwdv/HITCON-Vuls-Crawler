@@ -37,7 +37,7 @@ python tui_app.py
 python app.py
 ```
 
-![image](https://github.com/dwvwdv/github_picture/blob/master/螢幕擷取畫面%202025-11-05%20200151.png)
+![image](https://github.com/dwvwdv/github_picture/blob/master/螢幕擷取畫面%202025-11-05%20200626.png)
 
 
 ## 快捷鍵
