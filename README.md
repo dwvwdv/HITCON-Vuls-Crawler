@@ -15,7 +15,7 @@ pip install -r requirements.txt
 python diagnose_network.py
 
 # 4. 執行TUI程式
-python tui_app.py
+python app.py
 ```
 
 **詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
