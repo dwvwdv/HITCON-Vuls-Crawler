@@ -18,9 +18,9 @@ python scripts/diagnose_network.py
 python src/app.py
 ```
 
-**詳細建置說明請參閱 [INSTALL.md](docs/INSTALL.md)**
-**遇到問題？請參閱 [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**
-**數據為演示模式？請參閱 [ENVIRONMENT_README.md](docs/ENVIRONMENT_README.md)**
+**詳細建置說明請參閱 [INSTALL.md](docs/INSTALL.md)**  
+**遇到問題？請參閱 [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**  
+**數據為演示模式？請參閱 [ENVIRONMENT_README.md](docs/ENVIRONMENT_README.md)**  
 
 ## 功能特色
 - 現代化TUI界面（基於Textual框架）
