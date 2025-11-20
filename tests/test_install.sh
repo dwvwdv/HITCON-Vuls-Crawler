@@ -12,9 +12,10 @@ python3 -c "import textual; print('✅ textual')" || echo "❌ textual 未安裝
 
 echo ""
 echo "🔧 測試模組導入..."
-python3 -c "from crawler import HITCONVulsCrawler; print('✅ crawler.py')" || echo "❌ crawler.py 有問題"
-python3 -c "from config_loader import ConfigLoader; print('✅ config_loader.py')" || echo "❌ config_loader.py 有問題"
-python3 -c "from tui_app import HITCONVulsTUI; print('✅ tui_app.py')" || echo "❌ tui_app.py 有問題"
+cd ..
+python3 -c "from src.crawler import HITCONVulsCrawler; print('✅ crawler.py')" || echo "❌ crawler.py 有問題"
+python3 -c "from src.config_loader import ConfigLoader; print('✅ config_loader.py')" || echo "❌ config_loader.py 有問題"
+python3 -c "from src.app import HITCONVulsTUI; print('✅ app.py')" || echo "❌ app.py 有問題"
 
 echo ""
 echo "📄 檢查配置檔..."
@@ -28,4 +29,4 @@ echo ""
 echo "✨ 測試完成！"
 echo ""
 echo "如果所有項目都顯示 ✅，您可以執行："
-echo "  python3 tui_app.py"
+echo "  python3 src/app.py"

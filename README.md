@@ -12,15 +12,15 @@ cd HITCON-Vuls-Crawler
 pip install -r requirements.txt
 
 # 3. 網絡診斷（可選，檢查是否能訪問網站）
-python diagnose_network.py
+python scripts/diagnose_network.py
 
 # 4. 執行TUI程式
-python app.py
+python src/app.py
 ```
 
-**詳細建置說明請參閱 [INSTALL.md](INSTALL.md)**
-**遇到問題？請參閱 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)**
-**數據為演示模式？請參閱 [ENVIRONMENT_README.md](ENVIRONMENT_README.md)**
+**詳細建置說明請參閱 [INSTALL.md](docs/INSTALL.md)**
+**遇到問題？請參閱 [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**
+**數據為演示模式？請參閱 [ENVIRONMENT_README.md](docs/ENVIRONMENT_README.md)**
 
 ## 功能特色
 - 現代化TUI界面（基於Textual框架）
@@ -34,7 +34,7 @@ python app.py
 ### 新版TUI界面（推薦）
 執行TUI應用程式，享受現代化的終端介面：
 ```bash
-python app.py
+python src/app.py
 ```
 
 ![image](https://github.com/dwvwdv/github_picture/blob/master/螢幕擷取畫面%202025-11-05%20200626.png)
@@ -86,11 +86,25 @@ pip install -r requirements.txt
 
 ```
 HITCON-Vuls-Crawler/
-├── app.py          # TUI應用程式
-├── crawler.py          # 爬蟲邏輯模組
-├── config_loader.py    # 設定載入器
+├── src/                # 源代碼目錄
+│   ├── app.py          # TUI應用程式
+│   ├── crawler.py      # 爬蟲邏輯模組
+│   ├── config_loader.py # 設定載入器
+│   └── main.py         # CLI應用程式
+├── scripts/            # 工具腳本
+│   ├── diagnose_network.py # 網絡診斷工具
+│   └── test_keys.py    # 按鍵測試工具
+├── tests/              # 測試腳本
+│   ├── test_install.sh # Linux安裝測試
+│   └── test_install.bat # Windows安裝測試
+├── docs/               # 文檔目錄
+│   ├── INSTALL.md      # 安裝說明
+│   ├── QUICKSTART.md   # 快速開始
+│   ├── TROUBLESHOOTING.md # 故障排除
+│   ├── NETWORK_ISSUES.md # 網絡問題
+│   ├── ENVIRONMENT_README.md # 環境說明
+│   └── KEYBINDING_DEBUG.md # 按鍵綁定調試
 ├── config.json         # 預設設定檔
-├── main.py             # CLI應用程式
 ├── requirements.txt    # Python依賴
 └── README.md          # 說明文件
 ```  

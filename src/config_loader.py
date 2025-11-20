@@ -10,7 +10,7 @@ from typing import Dict, Any, List
 class ConfigLoader:
     """Loads and manages configuration for the TUI application"""
 
-    DEFAULT_CONFIG_PATH = "config.json"
+    DEFAULT_CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
     USER_CONFIG_PATH = os.path.expanduser("~/.hitcon-vuls-crawler-config.json")
 
     def __init__(self):

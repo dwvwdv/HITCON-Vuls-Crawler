@@ -7,8 +7,8 @@
 git clone https://github.com/dwvwdv/HITCON-Vuls-Crawler.git
 cd HITCON-Vuls-Crawler
 pip install -r requirements.txt
-./test_install.sh
-python tui_app.py
+./tests/test_install.sh
+python src/app.py
 ```
 
 ### Windows
@@ -16,8 +16,8 @@ python tui_app.py
 git clone https://github.com/dwvwdv/HITCON-Vuls-Crawler.git
 cd HITCON-Vuls-Crawler
 pip install -r requirements.txt
-test_install.bat
-python tui_app.py
+tests\test_install.bat
+python src/app.py
 ```
 
 ---
@@ -26,7 +26,7 @@ python tui_app.py
 
 ### 啟動程式
 ```bash
-python tui_app.py
+python src/app.py
 ```
 
 ### 常用快捷鍵
@@ -89,7 +89,7 @@ export LANG=en_US.UTF-8
 python3 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-python tui_app.py
+python src/app.py
 ```
 
 ### 自定義鍵位
@@ -105,7 +105,7 @@ nano ~/.hitcon-vuls-crawler-config.json
 ```bash
 # 需要額外依賴
 pip install -r requirements-full.txt
-python main.py
+python src/main.py
 ```
 
 ---
@@ -116,7 +116,7 @@ python main.py
 git clone https://github.com/dwvwdv/HITCON-Vuls-Crawler.git && \
 cd HITCON-Vuls-Crawler && \
 pip install -r requirements.txt && \
-python tui_app.py
+python src/app.py
 ```
 
 **就這麼簡單！** 🚀
