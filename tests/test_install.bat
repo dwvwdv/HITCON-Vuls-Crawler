@@ -22,9 +22,10 @@ python -c "import textual; print('√ textual')" 2>nul || echo X textual 未安�
 
 echo.
 echo 测试模组导入...
-python -c "from crawler import HITCONVulsCrawler; print('√ crawler.py')" 2>nul || echo X crawler.py 有问题
-python -c "from config_loader import ConfigLoader; print('√ config_loader.py')" 2>nul || echo X config_loader.py 有问题
-python -c "from tui_app import HITCONVulsTUI; print('√ tui_app.py')" 2>nul || echo X tui_app.py 有问题
+cd ..
+python -c "from src.crawler import HITCONVulsCrawler; print('√ crawler.py')" 2>nul || echo X crawler.py 有问题
+python -c "from src.config_loader import ConfigLoader; print('√ config_loader.py')" 2>nul || echo X config_loader.py 有问题
+python -c "from src.app import HITCONVulsTUI; print('√ app.py')" 2>nul || echo X app.py 有问题
 
 echo.
 echo 检查配置档...
@@ -38,6 +39,6 @@ echo.
 echo 测试完成！
 echo.
 echo 如果所有项目都显示 √，您可以执行：
-echo   python tui_app.py
+echo   python src/app.py
 echo.
 pause

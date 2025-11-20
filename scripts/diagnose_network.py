@@ -161,7 +161,7 @@ def main():
     if success:
         print("✅ HITCON 網站可訪問")
         print("✅ 爬蟲應該能正常工作")
-        print("\n建議: 運行 'python tui_app.py' 查看真實數據")
+        print("\n建議: 運行 'python src/app.py' 查看真實數據")
     else:
         print("❌ HITCON 網站無法訪問")
         if has_proxy:

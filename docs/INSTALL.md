@@ -26,10 +26,10 @@ pip install -r requirements-full.txt
 
 ```bash
 # Linux/macOS
-./test_install.sh
+./tests/test_install.sh
 
 # Windows
-test_install.bat
+tests\test_install.bat
 ```
 
 如果所有項目都顯示 ✅，安裝成功！
@@ -38,12 +38,12 @@ test_install.bat
 
 #### 選項 A：新版TUI界面（推薦）
 ```bash
-python tui_app.py
+python src/app.py
 ```
 
 #### 選項 B：傳統CLI模式
 ```bash
-python main.py
+python src/main.py
 ```
 
 ---
@@ -69,7 +69,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # 執行程式
-python tui_app.py
+python src/app.py
 ```
 
 #### Windows
@@ -84,7 +84,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 # 執行程式
-python tui_app.py
+python src/app.py
 ```
 
 ---
@@ -200,7 +200,7 @@ pip install pytest black flake8  # 測試和代碼格式化工具
 python -m py_compile *.py
 
 # 導入測試
-python -c "from tui_app import HITCONVulsTUI; print('✓ Import successful')"
+python -c "from src.app import HITCONVulsTUI; print('✓ Import successful')"
 ```
 
 ---
@@ -247,11 +247,11 @@ pip install -r requirements.txt --upgrade
 
 ```bash
 # 一鍵安裝並執行（虛擬環境）
-python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python tui_app.py
+python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python src/app.py
 
 # 一鍵安裝並執行（全局）
-pip install -r requirements.txt && python tui_app.py
+pip install -r requirements.txt && python src/app.py
 
 # 傳統模式
-python main.py
+python src/main.py
 ```
